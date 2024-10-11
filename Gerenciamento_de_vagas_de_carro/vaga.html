@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Vagas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main>
+        <h1>Vagas</h1>
+        <form id="formVaga">
+            <label for="numeroVaga">Número da Vaga:</label>
+            <input type="number" id="numeroVaga" required>
+
+            
+            <label for="veiculo">Veículo:</label>
+            <select id="veiculo" required>
+                <option value="">Selecione um veículo</option>
+                <!-- Opções dos veículos cadastrados serão inseridas aqui -->
+            </select>
+
+            <label for="numeroApartamento">Número do Apartamento:</label>
+            <input type="text" id="numeroApartamento" required>
+
+            <label for="blocoApartamento">Bloco do Apartamento:</label>
+            <input type="text" id="blocoApartamento" required>
+
+            <button type="submit">Cadastrar/Atualizar Vaga</button>
+        </form>
+
+        <h2>Vagas Cadastradas</h2>
+        <table id="tabelaVagas">
+            <thead>
+                <tr>
+                    <th>Número da Vaga</th>
+                    <th>Veículo</th>
+                    <th>Número do Apartamento</th>
+                    <th>Bloco do Apartamento</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Vagas serão inseridas aqui -->
+            </tbody>
+        </table>
+
+        <a href="dashboard.html">Voltar ao Dashboard</a>
+    </main>
+    <script type="module" src="vaga.js"></script>
+</body>
+</html>

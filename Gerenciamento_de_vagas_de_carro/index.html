@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecionamento</title>
+    <script>
+            function verificarLogin() {
+            const usuario = localStorage.getItem('usuarioLogado'); // Obtém o usuário logado do localStorage
+
+            if (usuario) {
+                // Se o usuário estiver logado, redireciona para o dashboard
+                window.location.href = 'dashboard.html';
+            } else {
+                // Se o usuário não estiver logado, redireciona para a página de login
+                window.location.href = 'login.html';
+            }
+        }
+        window.onload = verificarLogin;
+        
+    </script>
+</head>
+<body>
+    <p>Aguarde enquanto você é redirecionado...</p>
+</body>
+</html>

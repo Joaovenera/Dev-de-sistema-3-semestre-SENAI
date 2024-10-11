@@ -1,0 +1,19 @@
+{
+  "name": "aula_07-10-2024_criando_api",
+  "version": "1.0.0",
+  "description": "Aula dia 07/10/2024 criando uma API com Mysql",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JoaoVenera12/Dev-de-sistema-3-semestre-SENAI.git"
+  },
+  "author": "João Otavio Venera",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JoaoVenera12/Dev-de-sistema-3-semestre-SENAI/issues"
+  },
+  "homepage": "https://github.com/JoaoVenera12/Dev-de-sistema-3-semestre-SENAI#readme"
+}
