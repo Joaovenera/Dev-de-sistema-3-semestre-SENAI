@@ -3,7 +3,7 @@ function atividade1(string) {
 
     for (let caractere of string) {
         contagem[caractere] = (contagem[caractere] || 0) + 1;
-    }
+    } 
 
     let contagemOrdenada = Object.entries(contagem).sort((a, b) => b[1] - a[1]);
 
