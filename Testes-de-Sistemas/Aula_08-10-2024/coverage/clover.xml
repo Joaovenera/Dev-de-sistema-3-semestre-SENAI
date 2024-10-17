@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1729033278551" clover="3.2.0">
+  <project timestamp="1729033278551" name="All files">
+    <metrics statements="18" coveredstatements="18" conditionals="20" coveredconditionals="20" methods="4" coveredmethods="4" elements="42" coveredelements="42" complexity="0" loc="18" ncloc="18" packages="1" files="4" classes="4"/>
+    <file name="div.js" path="C:\Users\joaoo\OneDrive\Documentos\Garoto-de-Programa\Dev-de-sistema-3-semestre-SENAI\Aula_08-10-2024\div.js">
+      <metrics statements="6" coveredstatements="6" conditionals="6" coveredconditionals="6" methods="1" coveredmethods="1"/>
+      <line num="2" count="14" type="cond" truecount="4" falsecount="0"/>
+      <line num="3" count="3" type="stmt"/>
+      <line num="5" count="11" type="cond" truecount="2" falsecount="0"/>
+      <line num="6" count="2" type="stmt"/>
+      <line num="8" count="9" type="stmt"/>
+      <line num="11" count="1" type="stmt"/>
+    </file>
+    <file name="min.js" path="C:\Users\joaoo\OneDrive\Documentos\Garoto-de-Programa\Dev-de-sistema-3-semestre-SENAI\Aula_08-10-2024\min.js">
+      <metrics statements="4" coveredstatements="4" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
+      <line num="2" count="23" type="cond" truecount="4" falsecount="0"/>
+      <line num="3" count="7" type="stmt"/>
+      <line num="5" count="16" type="stmt"/>
+      <line num="7" count="1" type="stmt"/>
+    </file>
+    <file name="mult.js" path="C:\Users\joaoo\OneDrive\Documentos\Garoto-de-Programa\Dev-de-sistema-3-semestre-SENAI\Aula_08-10-2024\mult.js">
+      <metrics statements="4" coveredstatements="4" conditionals="6" coveredconditionals="6" methods="1" coveredmethods="1"/>
+      <line num="2" count="18" type="cond" truecount="6" falsecount="0"/>
+      <line num="3" count="6" type="stmt"/>
+      <line num="5" count="12" type="stmt"/>
+      <line num="8" count="1" type="stmt"/>
+    </file>
+    <file name="sum.js" path="C:\Users\joaoo\OneDrive\Documentos\Garoto-de-Programa\Dev-de-sistema-3-semestre-SENAI\Aula_08-10-2024\sum.js">
+      <metrics statements="4" coveredstatements="4" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
+      <line num="2" count="93" type="cond" truecount="4" falsecount="0"/>
+      <line num="3" count="3" type="stmt"/>
+      <line num="5" count="90" type="stmt"/>
+      <line num="8" count="1" type="stmt"/>
+    </file>
+  </project>
+</coverage>
