@@ -1,0 +1,12 @@
+[
+  {
+    "id": 2,
+    "nome": "joaao",
+    "matricula": 120120056
+  },
+  {
+    "id": 1,
+    "nome": "joao otavio",
+    "matricula": 12012006
+  }
+]
