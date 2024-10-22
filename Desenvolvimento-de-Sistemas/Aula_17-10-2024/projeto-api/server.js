@@ -1,60 +1,83 @@
 const express = require("express");
+const conexao = require("./banco.js");
+const cors = require('cors')
+
 const server = express();
 
+server.use(cors());
 server.use(express.json());
-const alunos =[];
 
-server.get('/', (req, res) => {
-    console.log('Minha rota GET');
-    res.json({mensagem: "https://localhost:3000/"})
+server.listen(3000, () => {
+    console.log("Servidor rodando na porta 3000");
 });
 
-server.post('/alunos', (req, res) => {
-    console.log('Meu cadastro de aluno');
-    console.log('Body requisição: ', req.body);    
-    //pegar os dados enviados pelo cliente
-    const idAluno = req.body.id;
-    const nomeAluno = req.body.nome;
-    const matriculaAluno = req.body.matricula;
-
-    console.log('Id aluno:', idAluno);
-    console.log('Nome aluno', nomeAluno);
-    console.log('Matricula aluno', matriculaAluno);
-    // Salvar na lista de alunos
-
-    const aluno ={
-        id : idAluno,
-        nome: nomeAluno,
-        matricula: matriculaAluno
-    };
-    alunos.push(aluno);
-
-    res.json({mensagem: 'Aluno cadastro.'});
+server.get("/alunos", (req, res) => {
+    const consultaSql = "SELECT * FROM ALUNO";
+    conexao.query(consultaSql, (erro, resultado) => {
+        if (erro) {
+            res.status(500).json({ mensagem: "Erro ao consultar os dados" });
+            throw new Error(erro);
+        } else {
+            res.json(resultado);
+        }
+    });
 });
 
-server.delete('/alunos/:idAluno', (req, res) => {
-    //pegar o id  do aluno que será deletado
-    const idAluno = req.params.idAluno;
-    console.log(idAluno);
+server.post("/alunos", (req, res) => {
+    console.log("Body requisição: ", req.body);
 
-    // trmover o usuário da lista
-    const indiceAluno = alunos.findIndex(aluno => aluno.id == idAluno);
-    if (indiceAluno < 0){
-        res.json({mensagem: "Aluno não existe."})
+    const id = req.body.id;
+    const nome = req.body.nome;
+    const matricula = req.body.matricula;
+
+    let insertSql = "INSERT INTO ALUNO (ID, NOME, MATRICULA) VALUES (";
+    insertSql = insertSql.concat(id, ", ");
+    insertSql = insertSql.concat("\"", nome, "\", ");
+    insertSql = insertSql.concat("\"", matricula, "\")");
+
+    conexao.query(insertSql, (erro, resultado) => {
+        if (erro) {
+            res.status(400).json({ mensagem: erro });
+            throw new Error(erro);
+        } else {
+            res.status(201).json({mensagem: "Aluno cadastrado", resultado: resultado });
+        }
+    });
+});
+
+server.delete("/alunos/:id", (req, res) => {
+    const id = parseInt(req.params.id);
+    const deleteSql = "DELETE FROM ALUNO WHERE ID = " + id;
+
+    conexao.query(deleteSql, (erro, resposta) => {
+        if (erro) {
+            res.status(500).json({ mensagem: "Erro ao deletar aluno" })
+        } else {
+            res.status(204).json({ mensagem: "Aluno removido com sucesso" });
+        }
+    });
+});
+
+server.put("/alunos/:id", (req, res) => {
+    const idParametro = parseInt(req.params.id);
+    const idCorpo = req.body.id;
+
+    if (idParametro != idCorpo) {
+        res.status(400).json({ mensagem: "Parâmetro id inválido" });
         return;
     }
-    alunos.splice(indiceAluno, 1);
 
-    res.json({mensagem: 'Aluno removido com sucesso'});
+    const updateSql = "UPDATE ALUNO "
+                    + "SET NOME = '" + req.body.nome + "', "
+                    + "MATRICULA = '" + req.body.matricula + "' "
+                    + "WHERE ID = " + idParametro;
 
-})
-
-server.get('/alunos', (req, res)=> {
-    console.log("Minha consulta de alunos");
-    res.json(alunos);
+    conexao.query(updateSql, (erro, resposta) => {
+        if (erro) {
+            res.status(400).json({ mensagem: "Verifique os dados passados" });
+            throw new Error(erro);
+        } else {
+            res.json({ resposta: resposta });
+        }
+    });
 });
-
-server.listen(3000, () =>{
-    console.log ('Servidor iniciado na porta 3000');
-
-})
