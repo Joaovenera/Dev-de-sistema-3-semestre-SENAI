@@ -24,3 +24,4 @@ app.listen(PORT, () => {
   console.log(`Servidor rodando na porta ${PORT}`);
   logger.info(`Servidor rodando na porta ${PORT}`);
 });
+//Teste
