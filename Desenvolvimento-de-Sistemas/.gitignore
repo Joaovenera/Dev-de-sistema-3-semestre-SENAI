@@ -1,4 +1,5 @@
 # Ignorar arquivos de log
+logs/
 *.log
 
 # Ignorar a pasta node_modules (muito usada em projetos Node.js)
