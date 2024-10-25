@@ -6,6 +6,7 @@ const produtosRoutes = require('./routes/produtos');
 const mercadosRoutes = require('./routes/mercados');
 const produtoController = require('./routes/movimentacao');
 const setupDatabase = require('./config/dbSetup');
+const logger = require('./config/logger');
 
 // Middleware para processar JSON
 app.use(express.json());
@@ -21,4 +22,5 @@ app.use('/api/mercados', produtoController);
 const PORT = 3000;
 app.listen(PORT, () => {
   console.log(`Servidor rodando na porta ${PORT}`);
+  logger.info(`Servidor rodando na porta ${PORT}`);
 });
