@@ -1,0 +1,59 @@
+body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: #a0a0a0;
+}
+
+.divCadastro {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.divTitulo {
+    display: flex;
+    align-items: center;
+}
+
+.divCadastro h1{
+    color: #ffae00;
+    text-shadow: 0 0 10px black;
+    padding-left: 23%;
+    padding-right: 10px;
+}
+
+.divCadastro form {
+    background-color: #ff3636;
+    border: #ffae00 2px solid;
+    padding: 20px;
+    width: 600px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px #4e4e4e;
+}
+
+.divCadastro form label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+.divCadastro form input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.divCadastro form button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    width: 100px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.divCadastro form button:hover {
+    background-color: #218838;
+}
