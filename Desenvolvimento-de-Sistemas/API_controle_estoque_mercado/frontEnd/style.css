@@ -29,6 +29,12 @@ body {
     padding-right: 10px;
 }
 
+.headerPrincipal h4 {
+    color: #ffae00;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
 .headerPrincipal button {
     background-color: #ffae00;
     color: white;
@@ -159,7 +165,7 @@ body {
     flex-direction: row;
     text-align: center;
     justify-content: center;
-    align-items: center;
+   
 }
 
 .listagem{
@@ -167,11 +173,8 @@ body {
     border: #ffae00 2px solid;
     padding: 20px;
     width: 600px;
-    height: 430px;
     border-radius: 8px;
-    margin-right: 30px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 600px;
 
 }
 .listagem h1 {
