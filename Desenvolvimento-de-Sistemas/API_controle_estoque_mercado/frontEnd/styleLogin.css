@@ -18,8 +18,13 @@ body {
 .divLogin h1{
     color: #ffae00;
     text-shadow: 0 0 10px black;
-    padding-left: 21%;
+    width: 400px;
     padding-right: 10px;
+}
+
+.divLogin h3{
+    color: #ffae00;
+    text-shadow: 0 0 10px black;
 }
 
 .divLogin form {
