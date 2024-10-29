@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const mercadoController = require('../controllers/mercadosController');
-const produtos = require('./produtos');
+//const produtos = require('./produtos');
 
 // Rotas para Mercados
 router.get('/', mercadoController.getAllMercados);  // Listar todos os Mercados

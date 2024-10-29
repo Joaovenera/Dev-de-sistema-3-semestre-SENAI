@@ -4,25 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro</title>
-    <link rel="stylesheet" href="styleCadastro.css">
+    <link rel="stylesheet" href="./style/styleCadastro.css">
 </head>
 <body>
     <div class="divCadastro">
-        <form id="Cadastro form" onsubmit="return autenticar(event)">
+        <form id="formCadastro">
             <div class="divTitulo">
-                <img src="./caminhaoLogo.png" alt="">
+                <img src="./src/caminhaoLogo.png" alt="">
                 <h1>Cadastro</h1>
             </div>
             <input type="text" id="Nome" placeholder="Nome" required>
 
-            <input type="text" id="Endereço" placeholder="Endereço" required>
+            <input type="text" id="Endereco" placeholder="Endereço" required>
 
             <input type="text" id="Email" placeholder="Email" required>
 
             <input type="text" id="Senha" placeholder="Senha" required>
 
-            <button type="submit" onclick="autenticar()">Cadastrar-se</button>
+            <button type="submit">Cadastrar</button>
         </form>
+        <p>Já tem uma conta? <a href="login.html">Faça login</a></p>
+        <p id="mensagemSucesso" style="display:none; color:green;">Usuário cadastrado com sucesso!</p>
+        <p id="mensagemErro" style="display:none; color:red;">Erro ao cadastrar usuário. Tente novamente.</p>
     </div>
+    <script type="module" src="cadastro.js"></script>
 </body>
 </html>
