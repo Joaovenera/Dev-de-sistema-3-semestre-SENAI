@@ -4,24 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="styleLogin.css">
+    <link rel="stylesheet" href="./style/styleLogin.css">
 </head>
 <body>
     <div class="divLogin">
         <form id="Login form" onsubmit="return autenticar(event)">
             <div class="divTitulo">
-                <img src="./caminhaoLogo.png" alt="">
+                <img src="./src/caminhaoLogo.png" alt="">
                 <h1>Bem Vindo</h1>
             </div>
             <input type="text" id="Email" placeholder="Email" required>
+            <input type="password" id="Senha" placeholder="Senha" required>
 
-            <input type="text" id="Senha" placeholder="Senha" required>
+            <button type="submit">Entrar</button>
 
-            <button type="submit" onclick="autenticar()">Entrar</button>
-
-            <h3 style="margin-top: 50px;">Sem conta cadastrada?</h3>
-            <button type="submit" onclick="autenticar()">Cadastrar-se</button>
-        </form>
+            </form>
+        <h3 style="margin-top: 50px;">Sem conta cadastrada?</h3>
+        <a href="cadastro.html"><button type="button">Cadastrar-se</button></a>
     </div>
 </body>
 </html>
