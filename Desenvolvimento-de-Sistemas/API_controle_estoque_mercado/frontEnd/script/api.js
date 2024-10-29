@@ -31,16 +31,18 @@ export async function apiCadastrarUsuario(usuario) {
     }
 }
 
-export async function apiConsultarUsuarios() {
+export async function apiConsultarUsuarios(usuario) {
     try {
-        const response = await fetch(`${baseUrl}/usuarios`, {
-            method: 'GET',
-            headers
+        const response = await fetch(`${baseUrl}/api/mercados/usuario/login`, {
+            method: 'POST',
+            headers,
+            body: JSON.stringify(usuario)
         });
-        if (!response.ok) throw new Error('Erro ao consultar usuários');
+        console.log()////////////////////////////////////////////////////////////////////////////
+        if (!response.ok) throw new Error('Erro ao consultar usuário');
         return await response.json();
     } catch (error) {
-        console.error('Erro ao consultar usuários:', error);
+        console.error('Erro ao consultar usuário:', error);
         throw error;
     }
 }

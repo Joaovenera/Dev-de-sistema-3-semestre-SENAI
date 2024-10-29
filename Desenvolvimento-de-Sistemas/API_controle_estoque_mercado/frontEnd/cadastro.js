@@ -4,16 +4,19 @@ document.getElementById('formCadastro').addEventListener('submit', async (event)
     event.preventDefault();
 
     const novoUsuario = {
+        nome: document.getElementById('Nome').value.trim(),
+        endereco: document.getElementById('Endereco').value.trim(),
         email: document.getElementById('Email').value.trim(),
         senha: document.getElementById('Senha').value.trim()
     };
 
     try {
         await apiCadastrarUsuario(novoUsuario);
-        alert('Usuário cadastrado com sucesso!');
-        window.location.href = 'login.html';
+        document.getElementById('mensagemSucesso').style.display = 'block';
+        document.getElementById('mensagemErro').style.display = 'none';
+        setTimeout(() => window.location.href = 'login.html', 2000);
     } catch (error) {
-        console.error('Erro ao cadastrar usuário:', error);
-        alert('Erro ao cadastrar usuário. Verifique se o email já não está cadastrado.');
+        document.getElementById('mensagemErro').style.display = 'block';
+        document.getElementById('mensagemSucesso').style.display = 'none';
     }
 });

@@ -9,4 +9,6 @@ router.post('/', usuarioController.createUsuario);  // Criar um novo Mercado
 router.put('/:id', usuarioController.updateUsuario);  // Atualizar um Mercado
 router.delete('/:id', usuarioController.deleteUsuario);  // Deletar um Mercado
 
+router.get('/login', usuarioController.loginUsuario);
+
 module.exports = router;
