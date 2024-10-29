@@ -62,18 +62,18 @@ body {
     border-radius: 4px;
 }
 
-/* .headerPrincipal form button {
+.headerPrincipal form button {
     background-color: #28a745;
     color: white;
     border: none;
     padding: 10px 15px;
     cursor: pointer;
     transition: background-color 0.3s;
-} */
+}
 
-/* .headerPrincipal form button:hover {
+.headerPrincipal form button:hover {
     background-color: #218838;
-} */
+}
 
 .headerPrincipal button {
     background-color: #ffae00;
@@ -84,7 +84,59 @@ body {
     cursor: pointer;
     transition: background-color 0.3s;
 }
+
 .headerPrincipal button:hover {
     background-color: #d49100;
 }
 
+.cadastro form {
+    justify-content: center;
+    align-items: center;
+    background-color: #ff3636;
+    border: #ffae00 2px solid;
+    padding: 20px;
+    width: 600px;
+    border-radius: 8px;
+    margin-right: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.cadastro form label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+.cadastro form input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.cadastro form button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.cadastro form button:hover {
+    background-color: #218838;
+}
+
+.cadastro button {
+    background-color: #ffae00;
+    color: white;
+    border: none;
+    width: 270px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.cadastro button:hover {
+    background-color: #d49100;
+}
