@@ -45,7 +45,21 @@
         </div>
         <div class="listagem">
             <h1>Listagem de Produtos</h1>
+            <button onclick="atualizarProdutos()">Atualizar</button> <!-- Botão de Atualizar -->
+            <table style="color: #ffae00;" id="tabelaProdutos" border="1">
+                <thead>
+                    <tr>
+                        <td>Nome</td>
+                        <td>Descrição</td>
+                        <td>Preço</td>
+                        <td>Estoque</td>
+                    </tr>
+                </thead>
+                <tbody id="corpoTabela"> <!-- Corpo da tabela para os produtos -->
+                </tbody>
+            </table>
         </div>
+        <script type="module" src="./script/listagemProduto.js"></script>
     </div>
 </body>
 </html>
