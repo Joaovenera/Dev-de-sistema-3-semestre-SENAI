@@ -191,3 +191,23 @@ body {
     padding-left: 50px;
     padding-right: 45px;
 }
+
+table {
+    width: 100%;
+    border-collapse: collapse; /* Faz com que as bordas se fundam */
+    color: #ffae00;
+}
+
+th, td {
+    border: 1px solid #ffae00; /* Borda amarela */
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: rgba(255, 174, 0, 0.2); /* Cor de fundo para cabeçalho */
+}
+
+tbody tr:nth-child(even) {
+    background-color: rgba(255, 174, 0, 0.1); /* Cor de fundo para linhas pares */
+}
