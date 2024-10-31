@@ -10,6 +10,8 @@ document.getElementById('formCadastro').addEventListener('submit', async (event)
         senha: document.getElementById('Senha').value.trim()
     };
 
+    console.log(novoUsuario);
+
     try {
         await apiCadastrarUsuario(novoUsuario);
         document.getElementById('mensagemSucesso').style.display = 'block';
