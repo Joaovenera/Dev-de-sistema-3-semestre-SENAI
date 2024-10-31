@@ -104,8 +104,8 @@ body {
     background-color: #ff3636;
     border: #ffae00 2px solid;
     padding: 20px;
-    height: 430px;
-    width: 600px;
+    height: 460px;
+    width: 400px;
     border-radius: 8px;
     margin-right: 30px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -172,7 +172,7 @@ body {
     background-color: #ff3636;
     border: #ffae00 2px solid;
     padding: 20px;
-    width: 600px;
+    width: 800px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
@@ -190,4 +190,23 @@ body {
     color: #ffae00;
     padding-left: 50px;
     padding-right: 45px;
+}
+
+.listagem button {
+    background-color: #ffae00;
+    color: white;
+    border: none;
+    width: 270px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.listagem button:hover {
+    background-color: #d49100;
+}
+
+.listagem table{
+    border-color: #218838;
+    border-radius: 4px 4px 2px 2px;
 }
