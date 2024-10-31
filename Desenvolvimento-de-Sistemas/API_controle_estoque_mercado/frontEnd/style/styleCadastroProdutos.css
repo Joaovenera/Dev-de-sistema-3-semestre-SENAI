@@ -211,3 +211,16 @@ th {
 tbody tr:nth-child(even) {
     background-color: rgba(255, 174, 0, 0.1); /* Cor de fundo para linhas pares */
 }
+
+button {
+    background-color: #ffae00; /* Cor do botão */
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #ff8c00; /* Cor do botão ao passar o mouse */
+}
+
