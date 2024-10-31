@@ -3,16 +3,22 @@ body {
     background-color: #a0a0a0;
 }
 
+.divTitulo {
+    display: flex;
+    align-items: center;
+}
+
+.divContaExistente{
+    display: flex;
+    flex-direction: row;
+}
+
 .divLogin {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     text-align: center;
-}
-
-.divTitulo {
-    display: flex;
-    align-items: center;
 }
 
 .divLogin h1{
@@ -32,6 +38,7 @@ body {
     border: #ffae00 2px solid;
     padding: 20px;
     width: 600px;
+    height: 260px;
     border-radius: 8px;
     box-shadow: 0 0 10px #4e4e4e;
 }
@@ -61,4 +68,18 @@ body {
 
 .divLogin form button:hover {
     background-color: #218838;
+}
+
+.divLogin button {
+    background-color: #ffae00;
+    color: white;
+    border: none;
+    width: 120px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.divLogin button:hover {
+    background-color: #d49100;
 }

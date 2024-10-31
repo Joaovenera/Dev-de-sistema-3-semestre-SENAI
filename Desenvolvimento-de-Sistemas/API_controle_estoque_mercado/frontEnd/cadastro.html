@@ -22,10 +22,14 @@
             <input type="text" id="Senha" placeholder="Senha" required>
 
             <button type="submit">Cadastrar</button>
+            
+            <h3 id="mensagemErro" style="display:none; color:#000000; text-shadow: 0 0 10px black;">Erro ao cadastrar usuário. Tente novamente.</h3>
         </form>
-        <p>Já tem uma conta? <a href="login.html">Faça login</a></p>
-        <p id="mensagemSucesso" style="display:none; color:green;">Usuário cadastrado com sucesso!</p>
-        <p id="mensagemErro" style="display:none; color:red;">Erro ao cadastrar usuário. Tente novamente.</p>
+        <div id="divContaExistente">
+            <h3>Já tem uma conta?</h3>
+            <a href="login.html"><button type="button">Faça login</button></a>
+        </div>
+        
     </div>
     <script type="module" src="cadastro.js"></script>
 </body>
