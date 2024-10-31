@@ -16,7 +16,7 @@ const setupDatabase = async () => {
     // Usando o banco de dados criado
     connection.query(`USE API_controle_estoque`, (err) => {
       if (err) throw err;
-      
+     
       // Verifica e cria a tabela mercado
       const mercadoTable = `
         CREATE TABLE IF NOT EXISTS mercado (
