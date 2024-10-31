@@ -20,7 +20,7 @@ setupDatabase();
 app.use('/api/mercados', mercadosRoutes);
 app.use('/api/mercados', produtosRoutes); 
 app.use('/api/mercados', produtoController);
-app.use('/api/mercados/usuario', usuarioController);
+app.use('/api/usuario', usuarioController);
 
 // Inicializando o servidor
 const PORT = 3000;
