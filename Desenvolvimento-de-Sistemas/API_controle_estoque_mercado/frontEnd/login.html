@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="divLogin">
-        <form id="Login form" onsubmit="return autenticar(event)">
+        <form id="loginForm">
             <div class="divTitulo">
                 <img src="./src/caminhaoLogo.png" alt="">
                 <h1>Bem Vindo</h1>
@@ -18,13 +18,15 @@
 
             <button type="submit">Entrar</button>
             
-            <h3 id="mensagemErro" style="display:none; color:#000000; text-shadow: 0 0 10px black;">Erro ao fazer login. Tente novamente.</h3>
+            <h3 id="mensagemErro" style="display:none; color:#000000; text-shadow: 0 0 10px black;">
+                Erro ao fazer login. Tente novamente.
+            </h3>
         </form>
         <div id="divContaInexistente">
             <h3>Sem conta cadastrada?</h3>
             <a href="cadastro.html"><button type="button">Cadastrar-se</button></a>
         </div>
     </div>
-    <script src="./script/login.js"></script>
+    <script type="module" src="./script/login.js"></script>
 </body>
 </html>
