@@ -16,16 +16,16 @@
         <form action="">
             <input type="text" id="pesquisar" placeholder="pesquisar" required>
         </form>
-        <div class="divMenu">
-            <h4 style="text-align: center; margin-bottom: 10px; margin-top: 0px;">Nome Mercado Cadastrado</h3>
-            <button type="submit" onclick="autenticar()">Pesquisar</button>
+        <div>
+            <button style="padding: 6px;" type="submit" onclick="autenticar()">Pesquisar</button>
+            <button style="padding: 6px;">Sair</button>
         </div>
     </header>
 
     <div class="gerencimento">
         <div class="cadastro form">
-            <form  action="">
-                <h1 class="cadastro form label">Gerenciamento de Produtos</h1>
+            <form  id="cadastroForm">
+                <h1 class="cadastro form label">Cadastro de Produtos</h1>
                 
                 <label for="">Nome do Produto: </label>
                 <input type="text" id="nome" placeholder="Nome" required>
@@ -45,8 +45,8 @@
         </div>
         <div class="listagem">
             <h1>Listagem de Produtos</h1>
-            <button onclick="atualizarProdutos()">Atualizar</button> <!-- Botão de Atualizar -->
-            <table style="color: #ffae00;" id="tabelaProdutos" border="1">
+            <button class="listagem button" onclick="atualizarProdutos()">Atualizar</button> <!-- Botão de Atualizar -->
+            <table style="" id="tabelaProdutos" >
                 <thead>
                     <tr>
                         <td>Nome</td>
@@ -59,7 +59,8 @@
                 </tbody>
             </table>
         </div>
-        <script type="module" src="./script/listagemProduto.js"></script>
+        <!-- <script type="module" src="./script/listagemProduto.js"></script> -->
+        <script type="module" src="./script/cadastroProdutos.js"></script>
     </div>
 </body>
 </html>

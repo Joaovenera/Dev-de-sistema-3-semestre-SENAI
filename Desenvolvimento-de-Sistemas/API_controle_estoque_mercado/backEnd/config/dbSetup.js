@@ -30,38 +30,55 @@ const setupDatabase = async () => {
         if (err) throw err;
         console.log('Tabela mercado verificada/criada.');
 
-        // Verifica e cria a tabela produto
-        const produtoTable = `
-          CREATE TABLE IF NOT EXISTS produto (
+        // Verifica e cria a tabela usuarios
+        const usuariosTable = `
+          CREATE TABLE IF NOT EXISTS usuarios (
             id INT NOT NULL AUTO_INCREMENT,
             nome VARCHAR(255) NOT NULL,
-            descricao VARCHAR(255),
-            preco DECIMAL(10,2) NOT NULL,
-            quantidade INT NOT NULL,
-            id_mercado INT DEFAULT NULL,
+            email VARCHAR(255) NOT NULL,
+            senha TEXT NOT NULL,
+            endereco VARCHAR(255) DEFAULT NULL,
             PRIMARY KEY (id),
-            FOREIGN KEY (id_mercado) REFERENCES mercado(id)
+            UNIQUE KEY usuarios_unique (email)
           ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
         `;
-        connection.query(produtoTable, (err) => {
+        connection.query(usuariosTable, (err) => {
           if (err) throw err;
-          console.log('Tabela produto verificada/criada.');
+          console.log('Tabela usuarios verificada/criada.');
 
-          // Verifica e cria a tabela movimentacao
-          const movimentacaoTable = `
-            CREATE TABLE IF NOT EXISTS movimentacao (
+          // Verifica e cria a tabela produto
+          const produtoTable = `
+            CREATE TABLE IF NOT EXISTS produto (
               id INT NOT NULL AUTO_INCREMENT,
-              tipo ENUM('entrada', 'saída') NOT NULL,
+              nome VARCHAR(255) NOT NULL,
+              descricao VARCHAR(255),
+              preco DECIMAL(10,2) NOT NULL,
               quantidade INT NOT NULL,
-              data_movimentacao DATE DEFAULT NULL,
-              id_produto INT NOT NULL,
+              id_mercado INT DEFAULT NULL,
               PRIMARY KEY (id),
-              FOREIGN KEY (id_produto) REFERENCES produto(id)
+              FOREIGN KEY (id_mercado) REFERENCES mercado(id)
             ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
           `;
-          connection.query(movimentacaoTable, (err) => {
+          connection.query(produtoTable, (err) => {
             if (err) throw err;
-            console.log('Tabela movimentacao verificada/criada.');
+            console.log('Tabela produto verificada/criada.');
+
+            // Verifica e cria a tabela movimentacao
+            const movimentacaoTable = `
+              CREATE TABLE IF NOT EXISTS movimentacao (
+                id INT NOT NULL AUTO_INCREMENT,
+                tipo ENUM('entrada', 'saída') NOT NULL,
+                quantidade INT NOT NULL,
+                data_movimentacao DATE DEFAULT NULL,
+                id_produto INT NOT NULL,
+                PRIMARY KEY (id),
+                FOREIGN KEY (id_produto) REFERENCES produto(id)
+              ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+            `;
+            connection.query(movimentacaoTable, (err) => {
+              if (err) throw err;
+              console.log('Tabela movimentacao verificada/criada.');
+            });
           });
         });
       });
