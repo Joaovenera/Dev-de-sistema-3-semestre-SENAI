@@ -31,6 +31,28 @@ export async function apiCadastrarUsuario(usuario) {
     }
 }
 
+export async function apiCadastrarProduto(novoProduto) {
+    try {
+        const response = await fetch(`${baseUrl}/api/mercados/1/produto`, {
+            method: 'POST',
+            headers,
+            body: JSON.stringify(novoProduto)
+        });
+        console.log(JSON.stringify(usuario));
+        if (!response.ok) throw new Error('Erro ao cadastrar Produto');
+        if (response.ok) {
+            alert("Produto Cadastrado com sucesso")
+            return await response.json();
+        } else {
+            alert("Erro ao cadastrar Produto")
+            throw new Error('Erro ao cadastrar Produto');
+        }
+    } catch (error) {
+        console.error('Erro ao cadastrar Produto:', error);
+        throw error;
+    }
+}
+
 export async function apiConsultarUsuarios(usuario) {
     try {
         const response = await fetch(`${baseUrl}/api/mercados/usuario/login`, {
