@@ -7,12 +7,18 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     text-align: center;
 }
 
 .divTitulo {
     display: flex;
     align-items: center;
+}
+
+.divContaExistente{
+    display: flex;
+    flex-direction: row;
 }
 
 .divCadastro h1{
@@ -22,11 +28,17 @@ body {
     padding-right: 10px;
 }
 
+.divCadastro h3{
+    color: #ffae00;
+    text-shadow: 0 0 10px black;
+}
+
 .divCadastro form {
     background-color: #ff3636;
     border: #ffae00 2px solid;
     padding: 20px;
     width: 600px;
+    height: 360px;
     border-radius: 8px;
     box-shadow: 0 0 10px #4e4e4e;
 }
@@ -56,4 +68,18 @@ body {
 
 .divCadastro form button:hover {
     background-color: #218838;
+}
+
+.divCadastro button {
+    background-color: #ffae00;
+    color: white;
+    border: none;
+    width: 120px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.divCadastro button:hover {
+    background-color: #d49100;
 }
