@@ -17,10 +17,14 @@
             <input type="password" id="Senha" placeholder="Senha" required>
 
             <button type="submit">Entrar</button>
-
-            </form>
-        <h3 style="margin-top: 50px;">Sem conta cadastrada?</h3>
-        <a href="cadastro.html"><button type="button">Cadastrar-se</button></a>
+            
+            <h3 id="mensagemErro" style="display:none; color:#000000; text-shadow: 0 0 10px black;">Erro ao fazer login. Tente novamente.</h3>
+        </form>
+        <div id="divContaInexistente">
+            <h3>Sem conta cadastrada?</h3>
+            <a href="cadastro.html"><button type="button">Cadastrar-se</button></a>
+        </div>
     </div>
+    <script src="./script/login.js"></script>
 </body>
 </html>
