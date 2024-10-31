@@ -70,8 +70,10 @@ async function deletarItens(id) {
 // Função para atualizar produtos diretamente da API
 async function atualizarProdutos() {
     try {
-        const response = await fetch('URL_DA_SUA_API/produtos'); // Substitua pela URL da API
+        const response = await fetch('http://localhost:3000/mercados/1/produtos'); // Substitua pela URL da API
+        console.log(response);
         const produtos = await response.json(); // Converte para JSON
+        console.log(produtos);
 
         const corpoTabela = document.getElementById('corpoTabela');
         corpoTabela.innerHTML = ''; // Limpa a tabela antes de inserir novos dados
@@ -92,7 +94,7 @@ async function atualizarProdutos() {
 }
 
 // Carrega itens ao iniciar a página
-carregarItens();
+//carregarItens();
 
 
 

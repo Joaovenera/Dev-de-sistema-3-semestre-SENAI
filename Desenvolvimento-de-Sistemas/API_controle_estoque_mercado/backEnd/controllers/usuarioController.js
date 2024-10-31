@@ -1,6 +1,21 @@
 const db = require('../config/db');
 const logger = require('../config/logger');
 
+exports.loginUsuario = async (req, res) => {
+    const { email, senha } = req.body;
+    try {
+        const [rows] = await db.query('SELECT id FROM usuarios WHERE email = ? AND senha = ?', [email, senha]);
+        if (rows.length === 0) return res.status(401).json({ error: 'Usuário ou senha inválidos' });
+        if (rows.length != 0) return  res.status(200).json({ message: 'Login realizado com sucesso',  id: rows[0].id });
+
+        res.json(rows[0]);
+        logger.info(`Login do usuário ${email} realizado com sucesso`);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+        logger.error(`Erro ao realizar login: ${err.message}`);
+    }
+};
+
 // Criar um novo mercado
 exports.createUsuario = async (req, res) => {
     const { email, senha, endereco, nome } = req.body;
@@ -14,6 +29,24 @@ exports.createUsuario = async (req, res) => {
         logger.error(`Erro ao criar usuario: ${err.message}`);
     }
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Listar todos os mercados
 exports.getAllUsuarios = async (req, res) => {
@@ -67,16 +100,5 @@ exports.getUsuarioById = async (req, res) => {
     }
 };
 
-exports.loginUsuario = async (req, res) => {
-    const { email, senha } = req.body;
-    try {
-        const [rows] = await db.query('SELECT * FROM usuarios WHERE email = ? AND senha = ?', [email, senha]);
-        if (rows.length === 0) return res.status(401).json({ error: 'Usuário ou senha inválidos' });
-        res.json(rows[0]);
-        logger.info(`Login do usuário ${email} realizado com sucesso`);
-    } catch (err) {
-        res.status(500).json({ error: err.message });
-        logger.error(`Erro ao realizar login: ${err.message}`);
-    }
-};
+
 
