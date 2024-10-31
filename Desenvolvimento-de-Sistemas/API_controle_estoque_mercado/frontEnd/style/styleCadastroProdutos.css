@@ -183,3 +183,11 @@ body {
     padding-left: 10px;
     padding-right: 10px;
 }
+
+.listagem td{
+
+    text-shadow: 0 0 12px #000000;
+    color: #ffae00;
+    padding-left: 50px;
+    padding-right: 45px;
+}
