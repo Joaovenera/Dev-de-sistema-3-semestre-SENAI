@@ -1,4 +1,4 @@
-import { apiCadastrarProduto } from './api';
+import { apiCadastrarProduto } from './api.js';
 
 document.getElementById('cadastroForm').addEventListener('submit', async (event) => {
     event.preventDefault();

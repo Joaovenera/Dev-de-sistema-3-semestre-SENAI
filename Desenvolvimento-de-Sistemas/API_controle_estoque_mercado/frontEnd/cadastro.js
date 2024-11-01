@@ -14,9 +14,10 @@ document.getElementById('formCadastro').addEventListener('submit', async (event)
 
     try {
         await apiCadastrarUsuario(novoUsuario);
+        alert('Usuário cadastrado com sucesso!');
         document.getElementById('mensagemSucesso').style.display = 'block';
         document.getElementById('mensagemErro').style.display = 'none';
-        setTimeout(() => window.location.href = 'login.html', 2000);
+        setTimeout(() => window.location.href = './login.html', 2000);
     } catch (error) {
         document.getElementById('mensagemErro').style.display = 'block';
         document.getElementById('mensagemSucesso').style.display = 'none';
