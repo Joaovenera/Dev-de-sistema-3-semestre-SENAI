@@ -1,42 +1,25 @@
-const id = "6955e9cbaff54de39a9d3ef08ebcfd91";
 const baseUrl = "http://localhost:3000";
-const veiculosEndpoint = `${baseUrl}/veiculos`; 
 
 const headers = { 'Content-Type': 'application/json' };
 
 // Funções de interação com a API
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // Usuários
 export async function apiCadastrarUsuario(usuario) {
     try {
-        const response = await fetch(`${baseUrl}/api/mercados/usuario/cadastrar`, {
+        const response = await fetch(`${baseUrl}/api/usuario/cadastrar`, {
             method: 'POST',
             headers,
             body: JSON.stringify(usuario)
         });
-        console.log(JSON.stringify(usuario));
         if (!response.ok) throw new Error('Erro ao cadastrar usuário');
         if (response.ok) {
+            alert("usuario cadastrado")
             document.getElementById("mensagemSucesso").style.display = "block";
             document.getElementById("mensagemErro").style.display = "none";
             return await response.json();
         } else {
+            alert("usuario cadastrado")
             document.getElementById("mensagemErro").style.display = "block";
             document.getElementById("mensagemSucesso").style.display = "none";
             throw new Error('Erro ao cadastrar');
@@ -85,6 +68,21 @@ export async function apiUsuariosLogin(usuario) {
     }
 }
 
+
+export async function apiConsultarVeiculos() {
+    try {
+        const response = await fetch(`${baseUrl}/api/mercados/1/produtos/2`, {
+            method: 'GET',
+            headers
+        });
+        if (!response.ok) throw new Error('Erro ao consultar veículos');
+        console.log(response)
+        return await response.json();
+    } catch (error) {
+        console.error('Erro ao consultar veículos:', error);
+        throw error;
+    }
+}
 
 
 

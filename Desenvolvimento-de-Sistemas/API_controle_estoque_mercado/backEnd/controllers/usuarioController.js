@@ -22,7 +22,7 @@ exports.createUsuario = async (req, res) => {
     try {
         const [result] = await db.query('INSERT INTO usuarios (email, senha, endereco, nome) VALUES (?, ?, ?, ?)', [email, senha, endereco, nome]);
         //const [rows] = await db.query('SELECT * FROM usurio WHERE id = ?', [result.insertId]);
-        //res.status(201).json(rows[0]);
+        res.json({ message: 'Usuário criado com sucesso', id: result.insertId });
         logger.info(`usuario criado com ID ${result.insertId}`);
     } catch (err) {
         res.status(500).json({ error: err.message });
