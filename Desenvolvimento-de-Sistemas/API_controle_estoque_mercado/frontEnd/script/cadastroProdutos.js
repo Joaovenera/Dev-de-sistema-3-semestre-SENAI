@@ -13,11 +13,11 @@ document.getElementById('cadastroForm').addEventListener('submit', async (event)
 
     try {
         await apiCadastrarProduto(novoProduto);
-        //document.getElementById('mensagemSucesso').style.display = 'block';
-        //document.getElementById('mensagemErro').style.display = 'none';
-        ///setTimeout(() => window.location.href = 'login.html', 2000);
+        // document.getElementById('mensagemSucesso').style.display = 'block';
+        // document.getElementById('mensagemErro').style.display = 'none';
+        // setTimeout(() => window.location.href = 'login.html', 2000);
     } catch (error) {
-        //document.getElementById('mensagemErro').style.display = 'block';
-       // document.getElementById('mensagemSucesso').style.display = 'none';
+    //    document.getElementById('mensagemErro').style.display = 'block';
+    //    document.getElementById('mensagemSucesso').style.display = 'none';
     }
 });

@@ -77,5 +77,9 @@ async function editarItens(id) {
     }
 }
 
+document.getElementById('btnSair').addEventListener('click', function() {
+    window.location.href = './login.html'; // Redireciona para a página de login
+});
+
 // Chama a função para preencher a tabela ao carregar
 atualizarProdutos();
