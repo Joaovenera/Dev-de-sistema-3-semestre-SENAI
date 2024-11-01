@@ -39,8 +39,8 @@ body {
     background-color: #ffae00;
     color: white;
     border: none;
-    width: 270px;
-    padding: 10px 15px;
+    width: 130px;
+    padding: 5px 5px 10px;
     cursor: pointer;
     transition: background-color 0.3s;
 }
@@ -82,20 +82,6 @@ body {
 
 .headerPrincipal form button:hover {
     background-color: #218838;
-}
-
-.headerPrincipal button {
-    background-color: #ffae00;
-    color: white;
-    border: none;
-    width: 270px;
-    padding: 10px 15px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.headerPrincipal button:hover {
-    background-color: #d49100;
 }
 
 .cadastro form {
@@ -156,8 +142,7 @@ body {
 .cadastro h1 {
     text-shadow: 0 0 12px #000000;
     color: #ffae00;
-    padding-left: 10px;
-    padding-right: 10px;
+    margin: 0;
 }
 
 .gerencimento {
@@ -180,8 +165,7 @@ body {
 .listagem h1 {
     text-shadow: 0 0 12px #000000;
     color: #ffae00;
-    padding-left: 10px;
-    padding-right: 10px;
+    margin: 0;
 }
 
 .listagem td{
@@ -193,37 +177,54 @@ body {
 }
 
 .listagem button {
-    background-color: #ffae00;
+    background-color: #28a745;
     color: white;
     border: none;
     width: 270px;
     padding: 10px 15px;
+    margin-top: 5px;
+    margin-bottom: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
 .listagem button:hover {
-    background-color: #d49100;
+    background-color: #218838;
 }
 
 .listagem table{
     border-color: #218838;
     border-radius: 4px 4px 2px 2px;
 }
+
+.listagem table button {
+    background-color: #ffae00;
+    color: white;
+    border: none;
+    width: 80px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.listagem table button:hover {
+    background-color: #d49100;
+}
+
 table {
-    width: 100%;
     border-collapse: collapse; /* Faz com que as bordas se fundam */
     color: #ffae00;
+
 }
 
 th, td {
     border: 1px solid #ffae00; /* Borda amarela */
-    padding: 8px;
-    text-align: left;
 }
 
 th {
     background-color: rgba(255, 174, 0, 0.2); /* Cor de fundo para cabeçalho */
+    text-align: center;
+    padding: 8px;
 }
 
 tbody tr:nth-child(even) {
