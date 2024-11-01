@@ -17,9 +17,9 @@
             <input type="text" id="pesquisar" placeholder="pesquisar" required>
         </form>
         <div>
-            <button style="padding: 6px;" type="submit" onclick="autenticar()">Pesquisar</button>
-            <button style="padding: 6px;">Sair</button>
+            <button style="margin-right: 30px; width: 160px;" type="submit" onclick="autenticar()">Pesquisar</button>
         </div>
+        <button id="btnSair" type="submit" onclick="sair()"> Sair</button> <!-- Botão sair -->
     </header>
 
     <div class="gerencimento">
@@ -39,7 +39,7 @@
                 <label for="">Quantidade do Produto: </label>
                 <input type="text" id="quantidade" placeholder="Quantidade" required>
                 
-                <button type="button" onclick="autenticar()">Cadastrar Produto</button>
+                <button type="button" onclick="apiCadastrarProduto()">Cadastrar Produto</button>
                 
             </form>
         </div>
@@ -62,7 +62,9 @@
                 </tbody>
             </table>
         </div>
-        <script src="./script/listagemProduto.js" defer></script>  
+        <script src="./script/listagemProduto.js"></script> 
+        <script src="./script/cadastroProdutos.js"></script> 
+        <script src="./script/api.js"></script> 
     </div>
 </body>
 </html>
