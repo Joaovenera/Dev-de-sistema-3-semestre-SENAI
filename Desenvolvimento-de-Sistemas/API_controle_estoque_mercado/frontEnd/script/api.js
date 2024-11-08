@@ -6,24 +6,8 @@ const headers = { 'Content-Type': 'application/json' };
 
 // Funções de interação com a API
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // Usuários
-export async function apiCadastrarUsuario(usuario) {
+async function apiCadastrarUsuario(usuario) {
     try {
         const response = await fetch(`${baseUrl}/api/mercados/usuario/cadastrar`, {
             method: 'POST',
@@ -47,7 +31,7 @@ export async function apiCadastrarUsuario(usuario) {
     }
 }
 
-export async function apiCadastrarProduto(novoProduto) {
+async function apiCadastrarProduto(novoProduto) {
     try {
         const response = await fetch(`${baseUrl}/api/mercados/1/produto`, {
             method: 'POST',
@@ -69,7 +53,31 @@ export async function apiCadastrarProduto(novoProduto) {
     }
 }
 
-export async function apiUsuariosLogin(usuario) {
+// Função para atualizar a lista de produtos
+async function apiAtualizarProduto() {
+    const produtos = await apiConsultarProdutos();
+    const corpoTabela = document.getElementById('corpoTabela');
+    corpoTabela.innerHTML = ''; // Limpa a tabela
+    try {
+
+        produtos.forEach(produto => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${produto.nome}</td>
+                <td>${produto.descricao}</td>
+                <td>${produto.valor}</td>
+                <td>${produto.quantidade}</td>
+                <td><button type="button" onclick="editarItens(${produto.id})">Editar</button></td>
+            `;
+            corpoTabela.appendChild(row);
+        });
+    } catch (error) {
+        console.error('Erro ao atualizar produtos:', error);
+        alert('Erro ao carregar produtos.');
+    }
+}
+
+async function apiUsuariosLogin(usuario) {
     try {
         const response = await fetch(`${baseUrl}/api/usuario/login`, {
             method: 'POST',
@@ -81,137 +89,66 @@ export async function apiUsuariosLogin(usuario) {
         return await response.json();
     } catch (error) {
         console.error('Erro ao consultar usuário:', error);
-        throw error;
     }
 }
 
+// Função para consultar produtos (novidade)
+async function apiConsultarProdutos() {
+    try {
+        const response = await fetch(`${baseUrl}/api/mercados/1/produtos`);
+        console.log('Erro ao consultar produtos:', response);
+        if (!response.ok) throw new Error('Erro ao consultar produtos');
+        return await response.json();
+    } catch (error) {
+        console.error('Erro ao consultar produtos:', error);
+    }
+}
 
+// Função de edição do item
+async function apiEditarItens(id) {
+    try {
+        // Faz a requisição à API para obter o produto específico
+        const response = await fetch(`${apiUrl}/${id}`);
 
+        // Verifica se a resposta foi bem-sucedida
+        if (!response.ok) {
+            throw new Error('Erro ao carregar produto. Código: ' + response.status);
+        }
 
+        const item = await response.json(); // Converte a resposta para JSON
 
-// // Função para verificar se a placa já está cadastrada
-// export async function verificarPlacaRepetida(placa) {
-//     try {
-//         const response = await fetch(veiculosEndpoint);
-//         const veiculos = await response.json();
+        const novoNome = prompt('Digite o novo Nome:', item.nome);
+        const novaDescricao = prompt('Digite a nova Descrição:', item.descricao);
+        const novoPreco = prompt('Digite o novo Preço:', item.preco);
+        const novaQuantidade = prompt('Digite a nova Quantidade:', item.quantidade);
+        
+        if (novoNome !== null && novoNome.trim() !== "" && novaDescricao !== null && novaDescricao.trim() !== "" && novoPreco !== null && novoPreco.trim() !== "" && novaQuantidade !== null && novaQuantidade.trim() !== "") {
+            // Atualiza os dados localmente antes de enviar à API
+            item.nome = novoNome.trim();
+            item.descricao = novaDescricao.trim();
+            item.preco = novoPreco.trim();
+            item.quantidade = novaQuantidade.trim();
 
-//         return veiculos.some(veiculo => veiculo.placa === placa);
-//     } catch (error) {
-//         console.error("Erro ao verificar placa duplicada:", error);
-//         return false; 
-//     }
-// }
+            // Faz a requisição PUT para atualizar o produto no banco de dados
+            const updateResponse = await fetch(`${apiUrl}/${id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(item), // Envia o item atualizado
+            });
 
-// // Função para cadastrar veículo
-// export async function apiCadastrarVeiculo(veiculo) {
-//     const response = await fetch(veiculosEndpoint, {
-//         method: "POST",
-//         headers: {
-//             "Content-Type": "application/json",
-//         },
-//         body: JSON.stringify(veiculo),
-//     });
-//     if (!response.ok) {
-//         throw new Error("Erro ao cadastrar veículo");
-//     }
-// }
+            // Verifica se a atualização foi bem-sucedida
+            if (!updateResponse.ok) {
+                throw new Error('Erro ao atualizar o produto. Código: ' + updateResponse.status);
+                apiAtualizarProduto(); // Atualiza a tabela com os novos dados
+            }
 
-// export async function apiConsultarVeiculos() {
-//     try {
-//         const response = await fetch(`${baseUrl}/veiculos`, {
-//             method: 'GET',
-//             headers
-//         });
-//         if (!response.ok) throw new Error('Erro ao consultar veículos');
-//         return await response.json();
-//     } catch (error) {
-//         console.error('Erro ao consultar veículos:', error);
-//         throw error;
-//     }
-// }
-
-// export async function apiAtualizarVeiculo(id, veiculoAtualizado) {
-//     try {
-//         const response = await fetch(`${baseUrl}/veiculos/${id}`, {
-//             method: 'PUT',
-//             headers,
-//             body: JSON.stringify(veiculoAtualizado)
-//         });
-//         if (!response.ok) throw new Error('Erro ao atualizar veículo');
-//         return await response.json();
-//     } catch (error) {
-//         console.error('Erro ao atualizar veículo:', error);
-//         throw error;
-//     }
-// }
-
-// export async function apiDeletarVeiculo(id) {
-//     try {
-//         const response = await fetch(`${baseUrl}/veiculos/${id}`, {
-//             method: 'DELETE',
-//             headers
-//         });
-//         if (!response.ok) throw new Error('Erro ao deletar veículo');
-//     } catch (error) {
-//         console.error('Erro ao deletar veículo:', error);
-//         throw error;
-//     }
-// }
-
-// // Vagas
-// export async function apiCadastrarVaga(vaga) {
-//     try {
-//         const response = await fetch(`${baseUrl}/vagas`, {
-//             method: 'POST',
-//             headers,
-//             body: JSON.stringify(vaga)
-//         });
-//         if (!response.ok) throw new Error('Erro ao cadastrar vaga');
-//         return await response.json();
-//     } catch (error) {
-//         console.error('Erro ao cadastrar vaga:', error);
-//         throw error;
-//     }
-// }
-
-// export async function apiConsultarVagas() {
-//     try {
-//         const response = await fetch(`${baseUrl}/vagas`, {
-//             method: 'GET',
-//             headers
-//         });
-//         if (!response.ok) throw new Error('Erro ao consultar vagas');
-//         return await response.json();
-//     } catch (error) {
-//         console.error('Erro ao consultar vagas:', error);
-//         throw error;
-//     }
-// }
-
-// export async function apiAtualizarVaga(id, vagaAtualizada) {
-//     try {
-//         const response = await fetch(`${baseUrl}/vagas/${id}`, {
-//             method: 'PUT',
-//             headers,
-//             body: JSON.stringify(vagaAtualizada)
-//         });
-//         if (!response.ok) throw new Error('Erro ao atualizar vaga');
-//         return await response.json();
-//     } catch (error) {
-//         console.error('Erro ao atualizar vaga:', error);
-//         throw error;
-//     }
-// }
-
-// export async function apiDeletarVaga(id) {
-//     try {
-//         const response = await fetch(`${baseUrl}/vagas/${id}`, {
-//             method: 'DELETE',
-//             headers
-//         });
-//         if (!response.ok) throw new Error('Erro ao deletar vaga');
-//     } catch (error) {
-//         console.error('Erro ao deletar vaga:', error);
-//         throw error;
-//     }
-// }
+            alert('Item atualizado com sucesso!');
+            apiAtualizarProduto(); // Atualiza a tabela com os novos dados
+        }
+    } catch (error) {
+        console.error('Erro ao editar item:', error);
+        alert('Erro ao atualizar item.');
+    }
+}
